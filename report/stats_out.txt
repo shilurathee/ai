@@ -1,0 +1,47 @@
+
+==================================================
+STATS FOR REPORT -- STUDENT DROPOUT PREDICTOR
+==================================================
+
+-- DATABASE STATS --------------------------------
+Total students:           25
+Total courses:            6
+Total enrollments:        100
+Total assessments:        400
+Assessments with NULL:    70
+NULL rate:                17.5%
+
+-- MODEL PERFORMANCE -----------------------------
+Accuracy:                 100.0%
+Precision (dropout):      100.0%
+Recall (dropout):         100.0%
+F1 Score (dropout):       100.0%
+Training rows:            400
+Test rows:                100
+Dropout rate in CSV:      ~20.0%
+
+-- STUDENT RISK DISTRIBUTION ---------------------
+High risk students:       10  (40.0%)
+Medium risk students:     0  (0.0%)
+Low risk students:        15  (60.0%)
+
+-- TOP 3 FEATURES BY IMPORTANCE ------------------
+1. avg_marks                    importance: 0.8127
+2. completion_rate              importance: 0.0450
+3. lowest_course_score          importance: 0.0419
+
+-- FILL THESE INTO YOUR REPORT -------------------
+Replace [ACCURACY]  with: 100.0%
+Replace [PRECISION] with: 100.0%
+Replace [RECALL]    with: 100.0%
+Replace [F1]        with: 100.0%
+Replace [H]         with: 10
+Replace [H%]        with: 40.0
+Replace [M]         with: 0
+Replace [M%]        with: 0.0
+Replace [L]         with: 15
+Replace [L%]        with: 60.0
+Replace [ACC]       with: 100.0
+Replace [PREC]      with: 100.0
+Replace [REC]       with: 100.0
+==================================================
