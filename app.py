@@ -210,6 +210,16 @@ def render_overview():
             border-radius: 10px;
             padding: 16px;
           }
+
+                    /* Force readable text on light metric cards, regardless of theme */
+                    div[data-testid="metric-container"] [data-testid="stMetricLabel"],
+                    div[data-testid="metric-container"] [data-testid="stMetricLabel"] *,
+                    div[data-testid="metric-container"] [data-testid="stMetricValue"],
+                    div[data-testid="metric-container"] [data-testid="stMetricValue"] *,
+                    div[data-testid="metric-container"] [data-testid="stMetricDelta"],
+                    div[data-testid="metric-container"] [data-testid="stMetricDelta"] * {
+                        color: #111827 !important;
+                    }
         </style>
     """, unsafe_allow_html=True)
 
@@ -271,28 +281,29 @@ def render_overview():
             missing = r['features']['assessments_missing']
             badge = badge_html(r['risk_category'])
             table_rows.append(
-                '<tr style="background:{}; border-bottom:1px solid #E5E7EB;">'
-                '<td style="padding:8px 12px; font-weight:500;">{}</td>'
-                '<td style="text-align:center; padding:8px 12px;">{}</td>'
-                '<td style="text-align:center; padding:8px 12px;">{}</td>'
-                '<td style="text-align:center; padding:8px 12px;">{}</td>'
-                '<td style="text-align:center; padding:8px 12px;">{}</td>'
-                '<td style="text-align:center; padding:8px 12px;">{}</td>'
+                '<tr style="background:{}; border-bottom:1px solid #E5E7EB; color:#111827;">'
+                '<td style="padding:8px 12px; font-weight:500; color:#111827;">{}</td>'
+                '<td style="text-align:center; padding:8px 12px; color:#111827;">{}</td>'
+                '<td style="text-align:center; padding:8px 12px; color:#111827;">{}</td>'
+                '<td style="text-align:center; padding:8px 12px; color:#111827;">{}</td>'
+                '<td style="text-align:center; padding:8px 12px; color:#111827;">{}</td>'
+                '<td style="text-align:center; padding:8px 12px; color:#111827;">{}</td>'
                 '</tr>'.format(bg, r['student_name'], r['risk_score'],
                                badge, avg_pct, missing, comp_pct)
             )
 
         html = (
             '<div style="overflow-x:auto;">'
-            '<table style="width:100%; border-collapse:collapse; font-family:sans-serif; font-size:14px;">'
+            '<table style="width:100%; border-collapse:collapse; font-family:sans-serif; '
+            'font-size:14px; color:#111827;">'
             '<thead>'
             '<tr style="background:#F3F4F6; border-bottom:2px solid #D1D5DB;">'
-            '<th style="text-align:left; padding:10px 12px;">Student Name</th>'
-            '<th style="text-align:center; padding:10px 12px;">Risk Score</th>'
-            '<th style="text-align:center; padding:10px 12px;">Category</th>'
-            '<th style="text-align:center; padding:10px 12px;">Avg Marks %</th>'
-            '<th style="text-align:center; padding:10px 12px;">Missing Asmts</th>'
-            '<th style="text-align:center; padding:10px 12px;">Completion %</th>'
+            '<th style="text-align:left; padding:10px 12px; color:#111827;">Student Name</th>'
+            '<th style="text-align:center; padding:10px 12px; color:#111827;">Risk Score</th>'
+            '<th style="text-align:center; padding:10px 12px; color:#111827;">Category</th>'
+            '<th style="text-align:center; padding:10px 12px; color:#111827;">Avg Marks %</th>'
+            '<th style="text-align:center; padding:10px 12px; color:#111827;">Missing Asmts</th>'
+            '<th style="text-align:center; padding:10px 12px; color:#111827;">Completion %</th>'
             '</tr>'
             '</thead>'
             '<tbody>'
